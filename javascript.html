@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript 模式</title>
+</head>
+<body>
+<script>
+    'use strict';
+    var global = (function(g){
+        return g;
+    }(window));
+//    console.log(global);
+
+
+
+    var o = {};
+//    console.log(o.constructor === Object);
+
+
+
+    var step = function(){
+        var count = 0;
+        return function(){
+            console.log(++count);
+        }
+    };
+    var a = step();
+//    a();
+
+
+
+    var myobj;
+    (function () {
+        var name = '123';
+        myobj = {
+            getname:function(){
+                return name;
+            }
+        }
+    })();
+
+    var myo = (function(){
+        var nam = 'fff';
+        return {
+            getn: function () {
+                return nam;
+            }
+        }
+    })()
+
+
+</script>
+</body>
+</html>

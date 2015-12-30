@@ -2,6 +2,7 @@
  * Created by zhangchao on 15/12/20.
  */
 define(function(){
+    'use strict';
     function Window(){}
 
     Window.protorype = function(){

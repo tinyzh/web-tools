@@ -30,24 +30,36 @@
 
 
 
-    var myobj;
-    (function () {
-        var name = '123';
-        myobj = {
-            getname:function(){
-                return name;
-            }
-        }
-    })();
+//    var myobj;
+//    (function () {
+//        var name = '123';
+//        myobj = {
+//            getname:function(){
+//                return name;
+//            }
+//        }
+//    })();
+//
+//    var myo = (function(){
+//        var nam = 'fff';
+//        return {
+//            getn: function () {
+//                return nam;
+//            }
+//        }
+//    })();
 
-    var myo = (function(){
-        var nam = 'fff';
-        return {
-            getn: function () {
-                return nam;
-            }
+    function uu(){
+        var name = 'zc';
+        var ff = function(){
+            console.log(name);
         }
-    })()
+        return ff;
+    }
+
+    var kk = uu();
+    kk();
+
 
 
 </script>

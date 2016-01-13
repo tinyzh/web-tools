@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style>
+		#parallax-obj{width: 600px;height: 600px;margin: 0 auto;}
+		ul{list-style: none;}
+		.layer{width: 30px;height: 30px;position: absolute;}
+		.ele-p1{background: red;margin-left: 80px;margin-top: 50px;}
+		.ele-p2{background: green;margin-left:160px;margin-top: 100px;}
+		.ele-p3{background: blue;margin-left:320px;margin-top: 200px;}
+		.ele-p4{background: yellow;margin-left: 600px;margin-top: 300px;}
+	</style>
+</head>
+<body>
+	<ul id="parallax-obj" class="parallax-obj">
+		<li  class="layer ele-p1" data-depth="1.00"></li>
+		<li  class="layer ele-p2" data-depth="0.80"></li>
+		<li  class="layer ele-p3" data-depth="0.60"></li>
+		<li  class="layer ele-p4" data-depth="0.30"></li>
+	</ul>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="jquery.parallax.min.js"></script>
+<script>
+	$('body').parallax();
+
+</script>
+</body>
+</html>

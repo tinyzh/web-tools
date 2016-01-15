@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弧线动画</title>
+	<style>
+		.box{width: 100px;height: 100px;background: #ccc;position: relative;}
+		.circle{width: 10px;height: 10px;border-radius: 50%;position: absolute;left: 0;bottom: 0;animation: xAxis 2s infinite ease-in;}
+		.circle:after{content:'';animation:yAxis 2s infinite ease-out;position: relative;width: 10px;height: 10px;display: block;background: red;border-radius: 50%;}
+		@keyframes xAxis{
+			50%{
+				transform:translateX(90px);
+			}
+		}
+		@keyframes yAxis{
+			50%{
+				transform:translateY(-90px);
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<div class="circle"></div>
+	</div>
+	
+
+	<script>
+		(function(){
+			var Circle = {
+				init:function(nRadius,sMessage){
+					this.nR = nRadius,
+					this.sMessage = sMessage
+				},
+				PI:3.14,
+				getArea:function(){
+					return this.sMessage + ':' + this.PI*this.nR*this.nR;
+				}
+			}
+			Circle.init(5,'面积');
+			var area = Circle.getArea();
+			console.log(area);
+		})();
+	</script>
+
+</body>
+</html>

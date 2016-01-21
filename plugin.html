@@ -70,15 +70,14 @@
 		<input type="text" class="school-id">
 	</div>
 	<div class="school-box-wrapper">
-    <div class="school-box">
-        <div class="school-box-header">选择学校</div>
-        <div class="school-box-provinces">
-            <!-- <a href="javascript:void(0)" class="province-item" data-province="1">江苏</a> -->
-        </div>
-        <div class="school-box-schools">
-            
-        </div> 
-    </div>
+	    <div class="school-box">
+	        <div class="school-box-header">选择学校</div>
+	        <div class="school-box-provinces">
+	        </div>
+	        <div class="school-box-schools">
+	            
+	        </div> 
+	    </div>
 </div>
 
 
@@ -103,9 +102,9 @@
 	                    .text(province['name']);
 	        $provinceDiv.append($province);
 	    }
-	}
+	};
 	// initProvinces();
-
+	
 	//初始化学校
 	var getProvinceById = function(pid){
 	    for(var i=0; i<provinces.length; i++){
@@ -159,22 +158,6 @@
 	    $schoolName.val($(this).text());
 	    $schoolId.val($(this).attr('data-school'));
 	};
-
-	//添加动画以及统一初始化方法
-	// var $schoolBox = $('.school-box-wrapper');
-	// var $schoolBoxLink = $('#openSchoolBoxLink');
-
-	// var hideSchoolBox = function(){
-	//     $schoolBox.slideUp();
-	//     $schoolBoxLink.show();
-	// };
-
-	// var showSchoolBox = function(){
-	//     $schoolBox.slideDown();
-	//     $schoolBoxLink.hide();
-
-	//      $provinceDiv.find('a').eq(lastProvinceIndex).click();
-	// };
 
 	var init = function(){
 	    initProvinces();

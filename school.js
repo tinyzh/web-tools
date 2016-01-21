@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/1/21.
+ * Created by zc on 2016/1/21.
  */
 ;(function($){
     var SchoolBox = (function(){

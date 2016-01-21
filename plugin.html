@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>制作组件</title>
+	<style>
+		.school-box-wrapper{
+    margin: 10px 0;
+}
+.school-box{
+    background-color: white;
+    border: 1px solid #005EAC;
+    width: 650px;
+}
+.school-box-header{
+    background: #3777BC;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+.school-box-provinces,
+.school-box-schools{
+    border: 1px solid #C3C3C3;
+    margin: 5px 10px 10px 10px;
+}
+.school-box-schools{
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.school-box-provinces a,
+.school-box-schools a{
+    color: #005EAC;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    text-decoration: none;
+}
+.school-box-provinces a{
+    margin: 2px 5px;
+    padding: 1px;
+}
+.school-box-provinces a:hover{
+    text-decoration: underline;
+}
+.school-box-provinces a.chosen{
+    background-color: #005EAC;
+    color: white;
+}
+.school-box-schools a{
+    margin: 4px 12px;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 160px;
+}
+.school-box-schools a:hover{
+    background-color: #005EAC;
+    color: white;
+}
+	</style>
+
+</head>
+<body>
+	<div class="school-box-wrapper">
+    <div class="school-box">
+        <div class="school-box-header">选择学校</div>
+        <div class="school-box-provinces">
+            <!-- <a href="javascript:void(0)" class="province-item" data-province="1">江苏</a> -->
+        </div>
+        <div class="school-box-schools">
+            
+        </div> 
+    </div>
+</div>
+
+
+<script src="school-list.js"></script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	var $provinceDiv = $('.school-box-provinces');
+	var $schoolDiv = $('.school-box-schools');
+
+	var $provinceCopy = $('<a href="javascript:void(0)" class="province-item"></a>');
+	var $schoolCopy = $('<a href="javascript:void(0)" class="school-item"></a>');
+
+	var provinces = SCHOOL_LIST;
+	var curProvince = -1;  //province id
+
+	//初始化province区域代码
+	var initProvinces = function(){
+	    for(var i=0; i<provinces.length; i++){
+	        var province = provinces[i];
+	        var $province = $provinceCopy.clone();
+	        $province.attr('data-province', province['id'])
+	                    .text(province['name']);
+	        $provinceDiv.append($province);
+	    }
+	}
+	// initProvinces();
+
+	//初始化学校
+	var getProvinceById = function(pid){
+	    for(var i=0; i<provinces.length; i++){
+	        // NOTE: 前置条件province id可以转成数字
+	        if(Number(provinces[i]['id']) == Number(pid)){
+	            return provinces[i];
+	        }
+	    }
+	    return undefined;
+	};
+
+	var initSchools = function(provinceId){
+	    var province = getProvinceById(provinceId);
+	    if(typeof province !== 'undefined'){
+	        var schools = province['school'];
+	        $schoolDiv.empty();
+
+	        for(var i=0; i<schools.length; i++){
+	            var school = schools[i];
+	            var $school = $schoolCopy.clone();
+	            $school.attr('data-school', school['id'])
+	                    .text(school['name']);
+	            $schoolDiv.append($school);
+	        }
+	    }
+	    return false;
+	};
+
+	var lastProvinceIndex = 0;  //最后一次点击的index，用于初始化选中
+	//为省绑定click事件
+	var onProvinceClick = function(){
+	    var pid = $(this).attr('data-province');
+	    lastProvinceIndex = $(this).index();
+
+	    if(curProvince != pid){
+	        // set chosen
+	        $provinceDiv.find('a[data-province="' + curProvince + '"]').removeClass('chosen');
+	        $provinceDiv.find('a[data-province="' + pid + '"]').addClass('chosen');
+	        // update
+	        curProvince = pid;
+	        initSchools(pid);
+	    }
+	    $schoolDiv.scrollTop(0);
+	};
+
+	//为学校绑定click事件
+	var $schoolInput = $('#schoolInput');
+	var $schoolId = $('#schoolId');
+
+	var onSchoolClick = function(){
+	    $schoolInput.val($(this).text());
+	    $schoolId.val($(this).attr('data-school'));
+	};
+
+	//添加动画以及统一初始化方法
+	var $schoolBox = $('.school-box-wrapper');
+	var $schoolBoxLink = $('#openSchoolBoxLink');
+
+	var hideSchoolBox = function(){
+	    $schoolBox.slideUp();
+	    $schoolBoxLink.show();
+	};
+
+	var showSchoolBox = function(){
+	    $schoolBox.slideDown();
+	    $schoolBoxLink.hide();
+
+	     $provinceDiv.find('a').eq(lastProvinceIndex).click();
+	};
+
+	var init = function(){
+	    initProvinces();
+	    // bind events
+	    $provinceDiv.find('a').click(onProvinceClick);
+	    // 由于school元素是动态改变的，这里一定要通过live去绑定
+	    $schoolDiv.find('a').on('click', onSchoolClick);
+	    $schoolBoxLink.click(showSchoolBox);
+	    // execute
+	    showSchoolBox();
+	};
+	init();
+
+
+</script>
+	
+</body>
+</html>

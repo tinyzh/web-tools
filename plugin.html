@@ -65,6 +65,10 @@
 
 </head>
 <body>
+	<div>
+		<input type="text" class="school-name">
+		<input type="text" class="school-id">
+	</div>
 	<div class="school-box-wrapper">
     <div class="school-box">
         <div class="school-box-header">选择学校</div>
@@ -148,11 +152,11 @@
 	};
 
 	//为学校绑定click事件
-	var $schoolInput = $('#schoolInput');
-	var $schoolId = $('#schoolId');
+	var $schoolName = $('.school-name');
+	var $schoolId = $('.school-id');
 
 	var onSchoolClick = function(){
-	    $schoolInput.val($(this).text());
+	    $schoolName.val($(this).text());
 	    $schoolId.val($(this).attr('data-school'));
 	};
 
@@ -177,7 +181,7 @@
 	    // bind events
 	    $provinceDiv.find('a').click(onProvinceClick);
 	    // 由于school元素是动态改变的，这里一定要通过live去绑定
-	    $schoolDiv.find('a').on('click', onSchoolClick);
+	    $schoolDiv.on('click','a', onSchoolClick);
 	    $schoolBoxLink.click(showSchoolBox);
 	    // execute
 	    showSchoolBox();

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>制作组件</title>
+	<title>学校选择组件</title>
 	<style>
 		.school-box-wrapper{
     margin: 10px 0;
@@ -134,11 +134,11 @@
 	    return false;
 	};
 
-	var lastProvinceIndex = 0;  //最后一次点击的index，用于初始化选中
+	// var lastProvinceIndex = 0;  //最后一次点击的index，用于初始化选中
 	//为省绑定click事件
 	var onProvinceClick = function(){
 	    var pid = $(this).attr('data-province');
-	    lastProvinceIndex = $(this).index();
+	    // lastProvinceIndex = $(this).index();
 
 	    if(curProvince != pid){
 	        // set chosen
@@ -161,20 +161,20 @@
 	};
 
 	//添加动画以及统一初始化方法
-	var $schoolBox = $('.school-box-wrapper');
-	var $schoolBoxLink = $('#openSchoolBoxLink');
+	// var $schoolBox = $('.school-box-wrapper');
+	// var $schoolBoxLink = $('#openSchoolBoxLink');
 
-	var hideSchoolBox = function(){
-	    $schoolBox.slideUp();
-	    $schoolBoxLink.show();
-	};
+	// var hideSchoolBox = function(){
+	//     $schoolBox.slideUp();
+	//     $schoolBoxLink.show();
+	// };
 
-	var showSchoolBox = function(){
-	    $schoolBox.slideDown();
-	    $schoolBoxLink.hide();
+	// var showSchoolBox = function(){
+	//     $schoolBox.slideDown();
+	//     $schoolBoxLink.hide();
 
-	     $provinceDiv.find('a').eq(lastProvinceIndex).click();
-	};
+	//      $provinceDiv.find('a').eq(lastProvinceIndex).click();
+	// };
 
 	var init = function(){
 	    initProvinces();

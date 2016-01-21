@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype</title>
+</head>
+<body>
+	
+
+
+	<script>
+	//转化为大写
+		function toUpper(arg){
+			var ele = [].concat(arg);
+			for(var i = 0;i<ele.length;i++){
+				console.log(ele[i].toUpperCase());
+			}
+		}
+		var arr = ['dddd'];
+		// toUpper(arr);
+
+	//递归阶乘
+	function getTotal(num){
+		if(num < 2){
+			return 1;
+		}else{
+			return num * arguments.callee(num - 1);
+		}
+	}
+	// console.log(getTotal(15));
+
+	//原型继承
+	function Person(name){
+		this.name = name;
+	}
+	Person.prototype = {
+		construct : Person,
+		getName : function(){
+			return this.name;
+		}
+	}
+	var man = new Person('zc');
+	// console.log(man.constructor);
+
+	//测试代码性能
+	console.time('test');
+	for(var s = 0;s<10000;s++){
+		// console.log(s);
+	}
+	console.timeEnd('test');
+
+
+	//检测数据类型
+	function a(){console.log(1);}
+	var a = 123;
+	var a = '123';
+	var a = [];
+	var a = {};
+	var a = true;
+	var a = null;
+	console.log(Object.prototype.toString.call(a));
+
+	//hasOwnProperty
+	function o(){
+		thsi.name = 'z';
+	}
+	o.prototype.age = 123;
+	// console.log(o.hasOwnProperty('age'));
+	console.log('name' in o);
+
+
+
+	//对象数组根据某个属性排序
+	function compare(prop){
+		return function(obj1,obj2){
+
+		}
+	}
+
+	//连接字符串
+	var a = 1,
+		b = 2,
+		c = '3';
+
+	var res = ''.concat(a,b,c);
+	console.log(res);
+
+
+
+
+	</script>
+</body>
+</html>

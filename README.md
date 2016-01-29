@@ -1,2 +1,2 @@
 # web-tools
-![JS](jstips-header-blog.gif)
+![tools](jstips-header-blog.gif)

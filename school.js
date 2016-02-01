@@ -122,6 +122,7 @@
         $(this.options.appendTo).find('.school-box-provinces').find('a').first().click();
     };
 
+
     //export
     window.SchoolBox = SchoolBox;
 })(jQuery);

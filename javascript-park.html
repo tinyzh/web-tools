@@ -9,7 +9,12 @@
 
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript">
-		console.log([1,2,3].join('.'));
+		//console.log([1,2,3].join('.'));
+		(function(a,b){
+			Array.prototype.unshift.call(arguments,1999);
+			console.log(arguments);
+		})(1,2);
+
 	</script>
 </body>
 </html>

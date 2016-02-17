@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>乘法表</title>
+	<style>
+		*{padding: 0;margin: 0;}
+		#box{width: 600px;margin: 50px auto;}
+		span{width: 60px;height: 30px;line-height: 30px;border: 1px solid #ccc;display: inline-block;text-align: center;margin: -1px 0 0 -1px;}
+
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+	// (function(){
+	// 	var html = '';
+	// 	for(var i=1;i<10;i++){
+	// 		html = '';
+	// 		for(var j=1;j<=i;j++){
+	// 			if(i == j){
+	// 				html += '<span>'+j +'*'+ i +'=' + i*j +'</span><br />';
+	// 			}else{
+	// 				html += '<span>'+j +'*'+ i +'=' + i*j +'</span>';
+	// 			}
+	// 		};
+	// 		(function(html){
+	// 			setTimeout(function(){
+	// 				if(html){
+	// 					$('#box').append(html);
+	// 				}
+	// 			},1000*i);
+	// 		})(html);
+	// 	}
+	// })();
+
+	
+		var res = [];
+		for(var i=1;i<10;i++){
+			for(var j=1;j<=i;j++){
+				if(i == j){
+					res.push('<span>'+j +'*'+ i +'=' + i*j +'</span><br />');
+				}else{
+					res.push('<span>'+j +'*'+ i +'=' + i*j +'</span>');
+				}
+			};
+		}
+		// console.log(res);
+		var num = 0;
+		var time = setInterval(function(){
+			$('#box').append(res[num]);
+			num++;
+		},150);
+	
+	</script>
+</body>
+</html>

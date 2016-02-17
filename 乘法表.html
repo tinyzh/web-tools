@@ -5,13 +5,14 @@
 	<title>乘法表</title>
 	<style>
 		*{padding: 0;margin: 0;}
-		#box{width: 600px;margin: 50px auto;}
+		#box{width: 1000px;margin: 50px auto;}
 		span{width: 60px;height: 30px;line-height: 30px;border: 1px solid #ccc;display: inline-block;text-align: center;margin: -1px 0 0 -1px;}
 
 
 	</style>
 </head>
 <body>
+	<input type="text" class="num" placeholder="请输入数字"><button>开始</button>
 	<div id="box">
 		
 	</div>
@@ -39,24 +40,31 @@
 	// 		})(html);
 	// 	}
 	// })();
-
-	
-		var res = [];
-		for(var i=1;i<10;i++){
-			for(var j=1;j<=i;j++){
-				if(i == j){
-					res.push('<span>'+j +'*'+ i +'=' + i*j +'</span><br />');
-				}else{
-					res.push('<span>'+j +'*'+ i +'=' + i*j +'</span>');
-				}
-			};
+		function count(num){
+			var res = [];
+			for(var i=1;i<=num;i++){
+				for(var j=1;j<=i;j++){
+					if(i == j){
+						res.push('<span>'+j +'*'+ i +'=' + i*j +'</span><br />');
+					}else{
+						res.push('<span>'+j +'*'+ i +'=' + i*j +'</span>');
+					}
+				};
+			}
+			// console.log(res);
+			var num = 0;
+			var time = setInterval(function(){
+				$('#box').append(res[num]);
+				num++;
+			},150);
 		}
-		// console.log(res);
-		var num = 0;
-		var time = setInterval(function(){
-			$('#box').append(res[num]);
-			num++;
-		},150);
+
+		$('button').click(function(){
+
+			count($('.num').val());
+		});
+	
+		
 	
 	</script>
 </body>

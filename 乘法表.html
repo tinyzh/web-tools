@@ -56,16 +56,22 @@
 			var time = setInterval(function(){
 				$('#box').append(res[num]);
 				num++;
+				if(num == res.length){
+					clearInterval(time);
+					var time2 = setInterval(function(){
+						$('#box span').eq(num).hide();
+						num--;
+						if(num == 0){
+							$('span').show();
+							clearInterval(time2);
+						}
+					},150);
+				}
 			},150);
 		}
-
 		$('button').click(function(){
-
 			count($('.num').val());
 		});
-	
-		
-	
 	</script>
 </body>
 </html>

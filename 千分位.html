@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var num = 12132132+'',
+			tem = num.split('').reverse(),
+			arr = [];
+		for(var i=0;i<tem.length;i++){
+			if(Math.floor(i%3) == 0 && i != 0){
+				arr.push(',');
+			}
+			arr.push(tem[i]);
+		}
+		arr.reverse();
+		arr = arr.join('');
+		console.log(arr);
+	</script>
+</body>
+</html>

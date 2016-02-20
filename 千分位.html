@@ -3,9 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		div{height: 2000px;width: 100px;border: 1px solid #ccc;}
+	</style>
 </head>
 <body>
+<div ></div>
 <input type="color" name="favcolor" id="color">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script>
 		var num = 12132132546546456;
 			tem = num.toString().split('').reverse(),
@@ -19,6 +24,14 @@
 		arr.reverse();
 		arr = arr.join('');
 		console.log(arr);
+
+		function scroll(){
+			console.log(123);
+			$(window).scroll(function(){
+				console.log('on');
+			});
+		}
+		scroll();
 	</script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css3圆环</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		.wrap{width: 200px;height: 200px;position: relative;margin: 50px auto;border:1px solid #ccc;}
+		.circle{width: 160px;height: 160px;border: 20px solid transparent;border-radius: 50%;margin: 0 auto;position: absolute;transform:rotate(-135deg);}
+		.wrapper{width: 100px;height: 200px;position: absolute;top: 0;overflow: hidden;}
+		.left{left: 0;}
+		.right{right: 0;}
+		.rightcircle{border-top-color: green;border-right-color: green;right: 0;animation:circle_right 4s linear infinite;}
+		.leftcircle{border-bottom-color:green;border-left-color:green;left: 0;animation:circle_left 4s linear infinite;}
+		@keyframes circle_right{
+			0%{
+				transform:rotate(-135deg);
+			}
+			50%,100%{
+				transform:rotate(45deg);
+			}
+		}
+
+		@keyframes circle_left{
+			0%,50%{
+				transform:rotate(-135deg);
+			}
+			100%{
+				transform:rotate(45deg);
+			}
+		}
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="wrapper left">
+		<div class="circle leftcircle"></div>
+	</div>
+	<div class="wrapper right">
+		<div class="circle rightcircle"></div>
+		
+	</div>
+
+</div>
+</body>
+</html>

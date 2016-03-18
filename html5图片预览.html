@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="utf-8">	
 		<title></title>
+		<style type="text/css">
+			img{width: 200px;}
+		</style>
 	</head>
 	<body>
 	
 	<input type="file" id="file" multiple></input>
 	<div id="show"></div>
-
+		<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script type="text/javascript">
 			
 			var show = document.querySelector('#show');
@@ -17,7 +20,7 @@
 				var files = this.files;
 				// console.log(file);
 				if(files.length){
-					checkFile(this.files);
+					checkFile(files);
 				}
 			});
 
@@ -48,7 +51,6 @@
 					}
 					var file = files[i];
 					var reader = new FileReader();
-
 					if(!/image\/\w+/.test(file.type)){
 						show.innerHTML = '请确保文件为图像类型';
 						return false;
@@ -63,6 +65,15 @@
 				func();
 			}
 
+			//放大缩小
+			$('body').on('click','img',function(){
+				if($(this).width() != this.naturalWidth){
+					$(this).width(this.naturalWidth);
+				}else{
+					$(this).width('200px');
+				}
+			})
+			
 
 
 		</script>

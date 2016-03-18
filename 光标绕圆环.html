@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{background: #f48100;}
+        .wrap{position: relative;width:150px;
+            margin:0 auto;}
+        .wrap a{display: block;position: absolute;width: 150px;height: 42px;border:1px solid #fff;line-height: 42px;
+            text-align: center;
+            color: #fff;text-decoration: none;
+            border-radius: 29px;
+            top:200px;
+        }
+        .wrap .star{position: absolute;width: 30px;height: 41px;background: url("star.png") no-repeat;
+            top:180px;animation-name: star;transform-origin: 50% 100%;animation-duration:8s;animation-timing-function:linear;animation-direction:normal;animation-iteration-count:infinite;}
+
+        @-webkit-keyframes star {
+            0%{
+                left: 6px;
+                transform:rotate(0deg);
+            }
+            35%{
+                left: 112px;
+                transform:rotate(0deg);
+            }
+            50%{
+                left:112px;
+                transform: rotate(180deg);
+            }
+            85%{
+                left: 6px;
+                transform: rotate(180deg);
+            }
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="javascript:;">center</a>
+        <span class="star"></span>
+    </div>
+</body>
+</html>

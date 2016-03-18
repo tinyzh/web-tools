@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button>sdfsdfs</button>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$.fn.changeColor = function(opt){
+		var defaultOpt = {
+			color : 'red'
+		}
+		defaultOpt = $.extend(defaultOpt,opt)
+		this.css('color',defaultOpt.color);
+		return this;
+	}
+
+	$('button').changeColor({color:'yellow'}).text('123');
+	jQuery.noConflict();
+
+
+	(function($){
+		$('button').click(function(){
+			alert(1);
+		});
+	})(jQuery);
+	console.log($);
+</script>
+</body>
+</html>
